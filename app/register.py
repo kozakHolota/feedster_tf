@@ -11,7 +11,7 @@ class Register(AppAbstract):
         self.username = username
 
     @allure.step("Registering new user into ")
-    def perform(self):
+    def perform(self, log_request=True):
         return \
             RegistrationDataModel(
                 self.request.post_endpoint(
@@ -20,6 +20,8 @@ class Register(AppAbstract):
                         self.username,
                         self.password1,
                         self.password2
-                    )
+
+                    ),
+                    log_request=log_request
                 )
             )

@@ -52,29 +52,32 @@ class Request(object):
     def get_url(self, end_point):
         return '{}://{}{}'.format(self.con_method, self.host, end_point)
 
-    def get_endpoint(self, end_point: str, additional_headers=None):
+    def get_endpoint(self, end_point: str, additional_headers=None, log_request=True):
         if additional_headers is None:
             additional_headers = {}
 
         resp = self.get(self.get_url(end_point), headers=dict(**{"Content-Type": "application/x-www-form-urlencoded"}, **additional_headers))
 
-        self.log_response(resp)
+        if log_request:
+            self.log_response(resp)
 
         return resp
 
-    def post_endpoint(self, end_point: str, additional_headers=None, json=None, data=None):
+    def post_endpoint(self, end_point: str, additional_headers=None, json=None, data=None, log_request=True):
         if additional_headers is None:
             additional_headers = {}
 
         resp = self.post(self.get_url(end_point), headers=dict(**{"Content-Type": "application/x-www-form-urlencoded"}, **additional_headers), json=json, data=data)
 
-        self.log_response(resp)
+        if log_request:
+            self.log_response(resp)
 
         return resp
 
-    def delete_endpoint(self, end_point: str, additional_headers=None):
+    def delete_endpoint(self, end_point: str, additional_headers=None, log_request=True):
         resp = self.delete(self.get_url(end_point), headers=dict(**{"Content-Type": "application/x-www-form-urlencoded"}, **additional_headers))
 
-        self.log_response(resp)
+        if log_request:
+            self.log_response(resp)
 
         return resp

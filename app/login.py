@@ -11,10 +11,11 @@ class Login(AppAbstract):
         self.username = username
 
     @allure.step("Logging into Feedster API")
-    def perform(self):
+    def perform(self, log_request=True):
         return LoginDataModel(
             self.request.post_endpoint(self.endpoint,
                                           data="username={}&password={}".format(self.username,
-                                                                                              self.password)
+                                                                                              self.password,
+                                                                                log_request=log_request)
                                        )
         )

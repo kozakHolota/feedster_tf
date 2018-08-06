@@ -10,5 +10,5 @@ class AppAbstract(object):
         self.request = Request(host)
 
     @abstractmethod
-    def perform(self):
+    def perform(self, log_request=True):
         pass

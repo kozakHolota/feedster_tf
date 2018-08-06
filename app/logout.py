@@ -8,5 +8,5 @@ class Logout(AppAbstract):
         super().__init__(host, "/v1/auth/logout/")
 
     @allure.step("Logout from the system")
-    def perform(self):
-        return LogoutDataModel(self.request.post_endpoint(self.endpoint))
+    def perform(self, log_request=True):
+        return LogoutDataModel(self.request.post_endpoint(self.endpoint, log_request=log_request))
