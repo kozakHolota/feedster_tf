@@ -11,16 +11,16 @@ def pytest_generate_tests(metafunc):
     pass8 = generate_string(8)
     incorrect_pass = generate_string(8)
     empty_pass = ''
-    resp = Register(feedster_host, default_username, pass8,
-                    pass8).perform()
-    status = int(resp.status_code)
-
-    while status != 201:
-        default_username = generate_string(8)
-        pass8 = generate_string(8)
-        resp = Register(feedster_host, default_username, pass8,
-                          pass8).perform()
-        status = int(resp.status_code)
+    # resp = Register(feedster_host, default_username, pass8,
+    #                 pass8).perform()
+    # status = int(resp.status_code)
+    #
+    # while status != 201:
+    #     default_username = generate_string(8)
+    #     pass8 = generate_string(8)
+    #     resp = Register(feedster_host, default_username, pass8,
+    #                       pass8).perform()
+    #     status = int(resp.status_code)
 
     metafunc.parametrize("host, username, password, expected_response",
                          (

@@ -44,7 +44,8 @@ class Request(object):
         return requests.delete
 
     def log_response(self, response: Response):
-        allure.attach(str(response.status_code), 'Status Code')
+        status_code = str(response.status_code)
+        allure.attach(status_code, "Status Code")
         allure.attach(response.content, "Response content")
         allure.attach(str(response.headers.items()), "Headers")
 
