@@ -27,3 +27,6 @@ class AbstractDataModel(object):
     @abstractmethod
     def __eq__(self, other):
         pass
+
+    def __repr__(self):
+        return str(self.__dict__)

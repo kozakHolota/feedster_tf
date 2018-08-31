@@ -24,12 +24,25 @@ def pytest_generate_tests(metafunc):
 
     metafunc.parametrize("host, username, password, expected_response",
                          (
-                             (feedster_host, default_username, pass8, LoginDataModel({"key": "0uguyguyg7786785"}, response_code=200)),
-                          (feedster_host, default_username, incorrect_pass, LoginDataModel({"non_field_errors":["Unable to log in with provided credentials."]}, response_code=400)),
-                             (feedster_host, incorrect_username, pass8, LoginDataModel({"non_field_errors":["Unable to log in with provided credentials."]}, response_code=400)),
-                              (feedster_host, empty_username, pass8, LoginDataModel({"username":["This field may not be blank."]}, response_code=400)),
-                             (feedster_host, default_username, empty_pass,
-                              LoginDataModel({"password": ["This field may not be blank."]}, response_code=400))
+                          (feedster_host, default_username, pass8,
+                           LoginDataModel({"key": "0uguyguyg7786785"}, response_code=200)
+                           ),
+
+                          (feedster_host, default_username, incorrect_pass,
+                           LoginDataModel({"non_field_errors":["Unable to log in with provided credentials."]}, response_code=400)
+                           ),
+
+                          (feedster_host, incorrect_username, pass8,
+                           LoginDataModel({"non_field_errors":["Unable to log in with provided credentials."]}, response_code=400)
+                           ),
+
+                          (feedster_host, empty_username, pass8,
+                           LoginDataModel({"username":["This field may not be blank."]}, response_code=400)
+                           ),
+
+                          (feedster_host, default_username, empty_pass,
+                            LoginDataModel({"password": ["This field may not be blank."]}, response_code=400)
+                           )
                           )
                          )
 
