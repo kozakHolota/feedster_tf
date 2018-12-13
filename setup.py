@@ -1,5 +1,7 @@
 from setuptools import setup
 
+# This is joke only
+
 setup(
 name = "Feedster REST API Testing Framework",
 version = "1.0.0-beta",
