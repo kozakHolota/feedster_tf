@@ -1,5 +1,5 @@
 from setuptools import setup
-
+# Veni! Vidi! Vichi
 setup(
 name = "Feedster REST API Testing Framework",
 version = "1.0.0-beta",
